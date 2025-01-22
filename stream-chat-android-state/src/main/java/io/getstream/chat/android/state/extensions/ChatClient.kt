@@ -290,7 +290,7 @@ public fun ChatClient.downloadAttachment(
             downloadManager.enqueue(
                 DownloadManager.Request(uri)
                     .setTitle(subPath)
-                    .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, subPath)
+                    .setDestinationInExternalPublicDir(context.externalCacheDir?.absolutePath ?: Environment.DIRECTORY_DOWNLOADS, subPath)
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
                     .apply(interceptRequest),
             )
